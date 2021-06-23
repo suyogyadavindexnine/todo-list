@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>ToDo List</h1>
+    <hr>
+    <div style="display: flex;">
+        <div id="navbar" style="width: 20%;">
+            <a href="index.html" style="text-decoration: none; color: black;">
+                <div id="additem" class="menuitemselected">
+                    <h3>Add Item</h3>
+                </div>
+            </a>
+            <a href="projects.html" style="text-decoration: none; color: black;">
+                <div id="projectsmenu" class="menuitem">
+                    <h3>Projects</h3>
+                </div>
+            </a>
+        </div>
+        <div id="maincontent" style="width: 80%;">
+            <div class="additem">
+                <h2>Add New ToDo Item</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Title</h4>
+                        </td>
+                        <td><input type="text" id="title" title="hello" hint="hello"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Discription</h4>
+                        </td>
+                        <td><input type="text" style="height: 100px;" id="discription"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Deu Date</h4>
+                        </td>
+                        <td><input type="date" id="deudate"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Priority</h4>
+                        </td>
+                        <td>
+                            <select id="priority" style="height: 35px; width: 100%;">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Highest">Highest</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Project</h4>
+                        </td>
+                        <td>
+                            <select id="project" style="height: 35px; width: 100%;">
+                                <!-- <option value="0">Default</option> -->
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button id="additembtn"
+                    style="width: 100px; height: 90px; background-color: #feefc3; color: black; margin-bottom: 20px;">Add
+                    Item</button>
+            </div>
+            <div class="additem" style="height : 230px ">
+                <h2>Add New Project</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Title</h4>
+                        </td>
+                        <td><input type="text" name="projectname" id="projectname"></td>
+                    </tr>
+                </table>
+                <button id="addprojectbtn"
+                    style="width: 100px; height: 50px; background-color: #feefc3; color: black; margin-bottom: 10px;">Add
+                    Project</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

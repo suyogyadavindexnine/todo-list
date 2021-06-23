@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+body{
+    font-family: 'Roboto Slab', serif;
+}
+.menuitem{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: flex;
+}
+.menuitem h3{
+    margin: auto;
+    display: block;
+}
+.menuitemselected{
+    background-color: #feefc3;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    border: 1px solid black;
+}
+.menuitemselected h3{
+    margin: auto;
+    display: block;
+}
+.menuitem:hover{
+    background-color: #f1f3f4;
+}
+.additem{
+    height: 90%;
+    width: 40%;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.additem td{
+    width: 150px;
+}
+.additem input{
+    width: 200px;
+    height: 30px;
+}
+#maincontent{
+    display: flex;
+    justify-content: space-evenly;
+}
