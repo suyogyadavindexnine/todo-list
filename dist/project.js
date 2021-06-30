@@ -14,40 +14,43 @@ function init() {
             console.log(JSON.parse(JSON.stringify(elm)));
             if (elm.projectList.length != 0) {
                 let title = document.createElement("h2");
-                title.style.marginLeft = "20px";
+                title.style.marginTop = "20px";
                 title.innerText = elm.projectName;
                 maincontent.appendChild(title);
                 let presentlist = document.createElement("div");
-                presentlist.className = "todoshelf";
+                presentlist.className = "row";
                 presentlist.innerHTML = "";
                 let j = 0;
                 elm.projectList.forEach(element => {
+                    const parentdiv = document.createElement('div');
+                    parentdiv.className = "col-md-3"
                     const div = document.createElement('div');
-                    div.className = "todo";
-                    if (element.isCompleted) {
-                        div.className += " completed";
-                    }
+                    div.className = "card";
+                    div.style.marginTop = "20px";
+                    div.style.padding = "12px 12px 12px 14px";
                     div.innerHTML =
-                        `<h4>
+                        `<h5>
                             Title : ${element.title}<br>
                             Discription : ${element.discription}<br>
                             Deu Date : ${element.deudate}<br>
                             Priority : ${element.priority}<br>
-                        </h4>`
+                        </h5>`
 
                     if (element.isCompleted) {
+                        div.className += " completed";
                         div.innerHTML +=
-                            `<div style="margin-bottom: 10px;">
-                                <button onclick="deleteToDo('${i}','${j}')" style="width: 100px; height: 50px; background-color: pink; color: black;" >Delete</button>
+                            `<div class="text-center" style="margin-bottom: 10px; margin-top: 10px;">
+                                <button class="btn btn-danger" onclick="deleteToDo('${i}','${j}')" >Delete</button>
                             </div>`
                     }else{
                         div.innerHTML +=
-                            `<div style="margin-bottom: 10px;">
-                                <button onclick="markAs('${i}','${j}')" style="width: 100px; height: 50px; background-color: greenyellow; color: black;" >Done</button>
-                                <button onclick="deleteToDo('${i}','${j}')" style="width: 100px; height: 50px; background-color: pink; color: black;" >Delete</button>
+                            `<div class="text-center" style="margin-bottom: 10px; margin-top: 10px;">
+                                <button class="btn btn-primary" onclick="markAs('${i}','${j}')"  >Done</button>
+                                <button class="btn btn-danger" onclick="deleteToDo('${i}','${j}')" >Delete</button>
                             </div>`
                     }
-                    presentlist.appendChild(div);
+                    parentdiv.appendChild(div);
+                    presentlist.appendChild(parentdiv);
                     j++;
                 })
                 maincontent.appendChild(presentlist);
@@ -68,6 +71,11 @@ function markAs(i, j) {
 }
 function deleteToDo(i, j) {
     todolist[i].projectList.splice(j, 1);
+    console.log("Length = "+todolist[i].projectList.length);
+    if (todolist[i].projectList.length == 0) {
+        todolist.splice(i,1);
+    }
+    console.log(todolist);
     localStorage.setItem('todolist', JSON.stringify(todolist));
     init();
 }
